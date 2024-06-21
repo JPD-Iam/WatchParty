@@ -33,8 +33,8 @@ def login_to_letterboxd(username, password):
     password_field.send_keys(Keys.RETURN)
     time.sleep(5)
 
-USERNAME="jpd13"
-PWD= "vivov913"
+USERNAME="your_user_name"
+PWD= "your_password"
 login_to_letterboxd(USERNAME,PWD)
 
 
