@@ -29,3 +29,7 @@ Project Setup
 
 1. Environment Setup
 Install Dependencies
+
+'''
+pip install -r requirements.txt
+'''
