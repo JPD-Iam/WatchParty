@@ -25,7 +25,7 @@ PostgreSQL: Database to store movie details and reviews.
 AWS: For cloud deployment.
 
 
-Project Setup
+##Project Setup
 
 1. Environment Setup
 Install Dependencies
@@ -33,3 +33,29 @@ Install Dependencies
 ```
 pip install -r requirements.txt
 ```
+NLTK Data
+
+Ensure necessary NLTK data files are downloaded:
+
+```
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+```
+
+
+2. Database Setup
+Create a PostgreSQL database and table to store movie data.
+
+```
+CREATE TABLE movies (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    poster_url VARCHAR(255),
+    reviews TEXT[],
+    processed_reviews TEXT[],
+    sentiment_scores JSON[]
+);
+```
+
