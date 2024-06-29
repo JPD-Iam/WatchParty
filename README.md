@@ -12,13 +12,19 @@ Randomized Recommendations: Provides random movie recommendations from the most 
 User Session Management: Remembers users and their activity across sessions.
 Technology Stack
 
-Python
-Flask: For creating the web application.
+Python Flask: For creating the web application.
+
 SQLAlchemy: For database ORM.
+
 VADER Sentiment Analyzer: For sentiment analysis.
+
 Beautiful Soup: For web scraping.
+
 PostgreSQL: Database to store movie details and reviews.
+
 AWS: For cloud deployment.
+
+
 Project Setup
 
 1. Environment Setup
