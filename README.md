@@ -25,7 +25,7 @@ PostgreSQL: Database to store movie details and reviews.
 AWS: For cloud deployment.
 
 
-##Project Setup
+#Project Setup
 
 1. Environment Setup
 Install Dependencies
@@ -130,4 +130,63 @@ def recommend_route():
 if __name__ == "__main__":
     application.run(host="0.0.0.0", debug=False)
 ```
+
+
+4. Web Scraping
+Use Beautiful Soup to scrape movie reviews:
+
+```python
+from bs4 import BeautifulSoup
+import requests
+
+def scrape_movie_details(movie_url):
+    response = requests.get(movie_url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    title_element = soup.select_one("h1.headline-1.filmtitle span.name")
+    movie_title = title_element.text.strip().replace('\xa0', ' ') if title_element else None
+
+    poster_element = soup.select_one("img.image")
+    poster_url = poster_element['src'] if poster_element else None
+
+    review_elements = soup.select("div.collapsed-text p")
+    review_texts = ' '.join([review.text.strip().replace('\\', '') for review in review_elements])
+
+    return {
+        "title": movie_title,
+        "poster_url": poster_url,
+        "reviews": [review_texts]
+    }
+```
+
+5. Deployment
+AWS Deployment
+
+EC2 Instance: Launch an EC2 instance.
+Security Groups: Ensure HTTP and SSH access.
+Setup: SSH into your instance and setup your environment.
+Application Setup: Clone your repository and run the application.
+
+```python
+# Example of setting up on EC2
+git clone https://github.com/your_username/your_repo.git
+cd your_repo
+pip install -r requirements.txt
+python app.py
+```
+
+Improvements and Fixes
+Bug Fixes: Fixed KeyError for 'compound' scores, ensured non-empty sentiment score lists.
+Randomized Recommendations: Added randomness to the recommendation selection.
+Database Cleanup: Removed unnecessary text from movie titles.
+Web Scraping Enhancement: Improved scraping to handle dynamic content loading.
+Conclusion
+
+This project demonstrates the integration of NLP, sentiment analysis, and web technologies to create a dynamic and user-friendly movie recommendation system. The project showcases skills in Python, Flask, SQLAlchemy, web scraping, and cloud deployment.
+
+Future Enhancements
+
+User Authentication: Add user login and registration.
+Enhanced UI: Improve the front-end for better user experience.
+Advanced Recommendation Algorithms: Incorporate more sophisticated recommendation techniques.
 
