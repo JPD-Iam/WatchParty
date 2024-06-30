@@ -167,8 +167,8 @@ Application Setup: Clone your repository and run the application.
 
 ```python
 # Example of setting up on EC2
-git clone https://github.com/your_username/your_repo.git
-cd your_repo
+git clone https://github.com/JPD-Iam/WatchParty.git
+cd WatchParty
 pip install -r requirements.txt
 python app.py
 ```
