@@ -45,7 +45,7 @@ nltk.download('wordnet')
 ```
 
 
-2. Database Setup
+2. Database Setup:
 Create a PostgreSQL database and table to store movie data.
 
 ```sql
@@ -59,8 +59,7 @@ CREATE TABLE movies (
 );
 ```
 
-3. Flask Application
-Create a Flask application (app.py):
+3. Create a Flask application (app.py):
 
 ```python
 from flask import Flask, jsonify, request, render_template
@@ -159,8 +158,7 @@ def scrape_movie_details(movie_url):
     }
 ```
 
-5. Deployment
-AWS Deployment
+5. AWS Deployment
 
 EC2 Instance: Launch an EC2 instance.
 Security Groups: Ensure HTTP and SSH access.
@@ -177,8 +175,11 @@ python app.py
 
 Improvements and Fixes
 Bug Fixes: Fixed KeyError for 'compound' scores, ensured non-empty sentiment score lists.
+
 Randomized Recommendations: Added randomness to the recommendation selection.
+
 Database Cleanup: Removed unnecessary text from movie titles.
+
 Web Scraping Enhancement: Improved scraping to handle dynamic content loading.
 Conclusion
 
@@ -187,6 +188,8 @@ This project demonstrates the integration of NLP, sentiment analysis, and web te
 Future Enhancements
 
 User Authentication: Add user login and registration.
+
 Enhanced UI: Improve the front-end for better user experience.
+
 Advanced Recommendation Algorithms: Incorporate more sophisticated recommendation techniques.
 
